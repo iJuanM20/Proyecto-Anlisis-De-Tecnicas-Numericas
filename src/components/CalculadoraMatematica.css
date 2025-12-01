@@ -1,0 +1,467 @@
+/* src/components/CalculadoraMatematica.css */
+
+.calculadora-geogebra {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 1rem;
+  overflow: hidden;
+  border: 1px solid #e8eaed;
+}
+
+/* Tabs superiores estilo GeoGebra */
+.calc-tabs {
+  display: flex;
+  background: #f8f9fa;
+  border-bottom: 2px solid #e0e0e0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.calc-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.calc-tab {
+  flex: 1;
+  min-width: 100px;
+  padding: 1rem 0.75rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calc-tab:hover:not(:disabled) {
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.calc-tab.activo {
+  background: white;
+  border-bottom-color: #667eea;
+}
+
+.calc-tab:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tab-icono {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.tab-nombre {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #5f6368;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.calc-tab.activo .tab-nombre {
+  color: #667eea;
+}
+
+/* Panel de botones */
+.calc-panel {
+  padding: 1.5rem;
+  background: white;
+}
+
+.calc-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.calc-fila {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+}
+
+/* Botones estilo GeoGebra */
+.calc-btn {
+  min-height: 52px;
+  border: 1.5px solid #dadce0;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
+  background: white;
+}
+
+.calc-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(102, 126, 234, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+.calc-btn:hover:not(:disabled)::before {
+  width: 100%;
+  height: 100%;
+}
+
+.calc-btn:hover:not(:disabled) {
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  z-index: 1;
+}
+
+.calc-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.calc-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.calc-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Span para botones grandes */
+.span-2 {
+  grid-column: span 2;
+}
+
+/* Tipos de botones - Estilo GeoGebra minimalista */
+.calc-btn-numero {
+  color: #202124;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.calc-btn-numero-grande {
+  color: #202124;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.calc-btn-operador {
+  color: #1a73e8;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.calc-btn-operador:hover:not(:disabled) {
+  background: #e8f0fe;
+  border-color: #1a73e8;
+}
+
+.calc-btn-parentesis {
+  color: #5f6368;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.calc-btn-variable {
+  color: #34a853;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.15rem;
+}
+
+.calc-btn-variable:hover:not(:disabled) {
+  background: #e6f4ea;
+  border-color: #34a853;
+}
+
+.calc-btn-constante {
+  color: #ea4335;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.calc-btn-constante:hover:not(:disabled) {
+  background: #fce8e6;
+  border-color: #ea4335;
+}
+
+.calc-btn-potencia,
+.calc-btn-raiz,
+.calc-btn-fraccion,
+.calc-btn-funcion {
+  color: #f9ab00;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.calc-btn-potencia:hover:not(:disabled),
+.calc-btn-raiz:hover:not(:disabled),
+.calc-btn-fraccion:hover:not(:disabled),
+.calc-btn-funcion:hover:not(:disabled) {
+  background: #fef7e0;
+  border-color: #f9ab00;
+}
+
+.calc-btn-trig {
+  color: #9334e6;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.calc-btn-trig:hover:not(:disabled) {
+  background: #f3e8fd;
+  border-color: #9334e6;
+}
+
+.calc-btn-exp,
+.calc-btn-log {
+  color: #1e8e3e;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.calc-btn-exp:hover:not(:disabled),
+.calc-btn-log:hover:not(:disabled) {
+  background: #e6f4ea;
+  border-color: #1e8e3e;
+}
+
+.calc-btn-separador {
+  color: #5f6368;
+  font-weight: 600;
+}
+
+.calc-btn-borrar {
+  color: #f9ab00;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.calc-btn-borrar:hover:not(:disabled) {
+  background: #fef7e0;
+  border-color: #f9ab00;
+}
+
+.calc-btn-clear {
+  color: #ea4335;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.calc-btn-clear:hover:not(:disabled) {
+  background: #fce8e6;
+  border-color: #ea4335;
+}
+
+/* Sección de ejemplos */
+.calc-ejemplos {
+  padding: 1rem 1.5rem 1.5rem;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.ejemplo-titulo {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #5f6368;
+  margin-right: 0.5rem;
+}
+
+.ejemplo-btn {
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1.5px solid #dadce0;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #667eea;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Courier New', monospace;
+}
+
+.ejemplo-btn:hover:not(:disabled) {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.25);
+}
+
+.ejemplo-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.ejemplo-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .calc-panel {
+    padding: 1rem;
+  }
+
+  .calc-btn {
+    min-height: 48px;
+    font-size: 1rem;
+  }
+
+  .calc-fila {
+    gap: 0.5rem;
+  }
+
+  .calc-grid {
+    gap: 0.5rem;
+  }
+
+  .calc-tab {
+    min-width: 80px;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .tab-icono {
+    font-size: 1.1rem;
+  }
+
+  .tab-nombre {
+    font-size: 0.65rem;
+  }
+
+  .calc-ejemplos {
+    padding: 0.75rem 1rem 1rem;
+  }
+
+  .ejemplo-btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .calc-btn {
+    min-height: 44px;
+    font-size: 0.95rem;
+  }
+
+  .calc-fila {
+    gap: 0.4rem;
+  }
+
+  .calc-grid {
+    gap: 0.4rem;
+  }
+
+  .calc-panel {
+    padding: 0.75rem;
+  }
+
+  .calc-tab {
+    min-width: 70px;
+    padding: 0.6rem 0.4rem;
+  }
+
+  .tab-icono {
+    font-size: 1rem;
+  }
+
+  .tab-nombre {
+    font-size: 0.6rem;
+  }
+
+  .calc-btn-trig,
+  .calc-btn-exp,
+  .calc-btn-log {
+    font-size: 0.85rem;
+  }
+}
+
+/* Animaciones */
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+/* Efectos especiales */
+.calc-btn-numero:active:not(:disabled),
+.calc-btn-operador:active:not(:disabled) {
+  animation: ripple 0.6s ease-out;
+}
+
+/* Mejora de accesibilidad */
+.calc-btn:focus-visible {
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Dark mode support (opcional) */
+@media (prefers-color-scheme: dark) {
+  .calculadora-geogebra {
+    background: #2d2d2d;
+    border-color: #444;
+  }
+
+  .calc-tabs {
+    background: #1e1e1e;
+    border-bottom-color: #444;
+  }
+
+  .calc-tab {
+    color: #e0e0e0;
+  }
+
+  .calc-tab.activo {
+    background: #2d2d2d;
+  }
+
+  .calc-panel {
+    background: #2d2d2d;
+  }
+
+  .calc-btn {
+    background: #3a3a3a;
+    border-color: #555;
+    color: #e0e0e0;
+  }
+
+  .calc-ejemplos {
+    background: #1e1e1e;
+    border-top-color: #444;
+  }
+
+  .ejemplo-btn {
+    background: #3a3a3a;
+    border-color: #555;
+  }
+}
