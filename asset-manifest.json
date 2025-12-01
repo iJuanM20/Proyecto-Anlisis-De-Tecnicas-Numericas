@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Proyecto-Anlisis-De-Tecnicas-Numericas/static/css/main.8a039bac.css",
+    "main.js": "/Proyecto-Anlisis-De-Tecnicas-Numericas/static/js/main.d49102d0.js",
+    "static/js/453.5c0a2d29.chunk.js": "/Proyecto-Anlisis-De-Tecnicas-Numericas/static/js/453.5c0a2d29.chunk.js",
+    "index.html": "/Proyecto-Anlisis-De-Tecnicas-Numericas/index.html",
+    "main.8a039bac.css.map": "/Proyecto-Anlisis-De-Tecnicas-Numericas/static/css/main.8a039bac.css.map",
+    "main.d49102d0.js.map": "/Proyecto-Anlisis-De-Tecnicas-Numericas/static/js/main.d49102d0.js.map",
+    "453.5c0a2d29.chunk.js.map": "/Proyecto-Anlisis-De-Tecnicas-Numericas/static/js/453.5c0a2d29.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8a039bac.css",
+    "static/js/main.d49102d0.js"
+  ]
+}
